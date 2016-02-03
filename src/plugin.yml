@@ -1,0 +1,13 @@
+name: Perms
+main: com.ulfric.perms.Perms
+version: 1.0.0-REL
+author: Packet
+depend: [Lib]
+
+commands:
+  perms:
+    description: Permissions management command
+    usage: >
+            /<command> [addgroup|ag] <user> <group>
+            /<command> [setgroup|sg] <user> <group>
+            /<command> [cleargroups|cg] <user>
