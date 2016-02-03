@@ -3,6 +3,7 @@ package com.ulfric.perms.group;
 import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 import com.ulfric.lib.api.hook.CachingEngine;
@@ -115,7 +116,7 @@ public class GroupProxy implements IGroup, Proxy<Group> {
 	@Override
 	public boolean isDefault()
 	{
-		return this.func(Group::isDefault);
+		return Optional.ofNullable(this.func(Group::isDefault)).orElse(Boolean.FALSE);
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package com.ulfric.perms.ladder;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.common.collect.Lists;
 import com.ulfric.lib.api.java.Assert;
 import com.ulfric.lib.api.java.Named;
 import com.ulfric.perms.group.Group;
@@ -26,6 +27,13 @@ public class Ladder implements Named, Iterable<Group> {
 	public boolean insert(Group group, int place)
 	{
 		Assert.notNull(group);
+
+		if (this.rankings == null)
+		{
+			this.rankings = Lists.newArrayList(group);
+
+			return false;
+		}
 
 		boolean removed = this.rankings.remove(group);
 
