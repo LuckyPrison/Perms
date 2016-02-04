@@ -20,6 +20,7 @@ import com.ulfric.perms.group.GroupColl;
 import com.ulfric.perms.group.GroupProxy;
 import com.ulfric.perms.group.IGroup;
 import com.ulfric.perms.node.Node;
+import com.ulfric.perms.node.NodeColl;
 import com.ulfric.perms.permissible.Permissible;
 
 public class User extends Permissible implements Unique {
@@ -136,7 +137,7 @@ public class User extends Permissible implements Unique {
 
 		if (!this.hasPlayedBefore()) return null;
 
-		this.supplyPermissions(Node.fromSection(Hooks.DATA.getPlayerData(this.uuid).getRecur("perms.nodes")));
+		this.supplyPermissions(NodeColl.fromSection(Hooks.DATA.getPlayerData(this.uuid).getRecur("perms.nodes")));
 
 		return super.getAllPermissions();
 	}

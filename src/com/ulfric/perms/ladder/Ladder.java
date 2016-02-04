@@ -10,7 +10,7 @@ import com.ulfric.perms.group.Group;
 
 public class Ladder implements Named, Iterable<Group> {
 
-	private List<Group> rankings;
+	private List<Group> rankings = Lists.newArrayList();
 
 	protected Ladder(String name)
 	{
@@ -28,9 +28,9 @@ public class Ladder implements Named, Iterable<Group> {
 	{
 		Assert.notNull(group);
 
-		if (this.rankings == null)
+		if (this.rankings.isEmpty())
 		{
-			this.rankings = Lists.newArrayList(group);
+			this.rankings.add(group);
 
 			return false;
 		}

@@ -17,6 +17,7 @@ import com.ulfric.lib.api.module.SimpleModule;
 import com.ulfric.lib.api.persist.ConfigFile;
 import com.ulfric.perms.group.GroupColl.IGroupManager;
 import com.ulfric.perms.node.Node;
+import com.ulfric.perms.node.NodeColl;
 
 public class GroupCollModule extends SimpleModule {
 
@@ -50,7 +51,7 @@ public class GroupCollModule extends SimpleModule {
 
 					ConfigurationSection permSection = section.getConfigurationSection("permissions");
 
-					Map<String, Collection<Node>> permissions = Node.fromSection(permSection);
+					Map<String, Collection<Node>> permissions = NodeColl.fromSection(permSection);
 					Collection<IGroup> parents = permSection == null ? ImmutableList.of() : permSection.getStringList("parents").stream().map(GroupProxy::of).collect(Collectors.toList());
 
 					ConfigurationSection optionsSection = section.getConfigurationSection("options");
